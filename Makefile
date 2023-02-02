@@ -66,7 +66,7 @@ ${NAME} : ${OBJS}
 
 ${BNAME} : ${BONUS_OBJS}
 	${AR} $@ $?
-	${AR} ${NAME} $?
+	${AR} ${NAME} $@
 
 bonus : ${NAME} ${BNAME}
 
