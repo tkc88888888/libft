@@ -58,8 +58,9 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-%.o : %.c
-	${CC} ${CFLAGS} -c $? -o $@ -I$(INC_DIR)
+all : bonus
+
+bonus : ${NAME} ${BNAME}
 
 ${NAME} : ${OBJS}
 	${AR} $@ $?
@@ -68,9 +69,8 @@ ${BNAME} : ${BONUS_OBJS}
 	${AR} $@ $?
 	${AR} ${NAME} $@
 
-bonus : ${NAME} ${BNAME}
-
-all : bonus
+%.o : %.c
+	${CC} ${CFLAGS} -c $? -o $@ -I$(INC_DIR)
 
 clean :
 	${RM} ${OBJS} ${BONUS_OBJS}
